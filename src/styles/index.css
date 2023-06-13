@@ -1,1 +1,55 @@
 /* Desenvolva sua estilização aqui ... */
+.filters__container h2 {
+    margin: 50px 0;
+}
+  
+.filters-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+  
+.filters__range-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards__container > h2 {
+    margin: 50px 0;
+}
+  
+.cards__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px 0;
+    flex-wrap: wrap;
+  
+    margin-bottom: 50px;  
+}
+
+.card {
+    width: 310px;
+    background-color: var(--color-grey-8);
+    border-radius: var(--radius-1);
+  }
+  
+.card > img {
+    max-width: 100%;
+    border-radius: var(--radius-1) var(--radius-1) 0 0;
+}
+  
+.card > p {
+    margin-left: 1rem;
+}
+  
+.card > h2 {
+    margin: 1rem;
+}
+  
+.card > span {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
