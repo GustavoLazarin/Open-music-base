@@ -41,12 +41,56 @@ const renderButtons = (array) => {
 
 const renderCards = (array) => {
     const list = document.querySelector('.cards__list');
+    list.innerHTML = '';
     
     array.forEach(element => {
         let card = createCard(element);
         list.appendChild(card);
     })
+
+    console.log(array)
+}
+
+const addEvents = (categoriesArray, productsArray) => {
+    const buttons = document.querySelectorAll('.filters-buttons > li > button');
+    const inputRange = document.querySelector('input[type="range"');
+    const priceValueParagraph = document.querySelector('.filters__range-info > p');
+
+    let filteredArray = productsArray;
+    let selectedButtonIndex = 0;
+    let inputValue = inputRange.value;
+
+    //Evento de filtro por categoria
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.innerText;
+            selectedButtonIndex = categoriesArray.findIndex(element => element===category);
+
+            if (selectedButtonIndex == 0) {
+                filteredArray = productsArray.filter(product => product.price <= inputValue);
+            } else {
+                filteredArray = productsArray.filter(product => product.category === selectedButtonIndex && product.price <= inputValue);
+            }
+
+            renderCards(filteredArray);
+        })
+    })
+
+    //Evento de filtro por preço
+    inputRange.addEventListener('input', () => {
+        inputValue = inputRange.value;
+        priceValueParagraph.innerText = `Até R$ ${inputValue}`;
+
+        if (selectedButtonIndex == 0) {
+            filteredArray = productsArray.filter(product => product.price <= inputValue);
+        } else {
+            filteredArray = productsArray.filter(product => product.category === selectedButtonIndex && product.price <= inputValue);
+        }
+
+        renderCards(filteredArray);
+    })
 }
 
 renderButtons(categories);
 renderCards(products);
+addEvents(categories, products)
