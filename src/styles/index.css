@@ -1,4 +1,12 @@
 /* Desenvolva sua estilização aqui ... */
+h1 {
+    font-size: var(--font-1);
+}
+
+h2 {
+    font-size: var(--font-2);
+}
+
 .filters__container h2 {
     margin: 50px 0;
 }
@@ -29,7 +37,7 @@
 }
 
 .card {
-    width: 310px;
+    width: 308px;
     background-color: var(--color-grey-8);
     border-radius: var(--radius-1);
   }
@@ -39,8 +47,20 @@
     border-radius: var(--radius-1) var(--radius-1) 0 0;
 }
   
+.card > div {
+    margin: 20px 0 0 16px;
+
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
 .card > p {
-    margin-left: 1rem;
+    width: max-content;
+    color: var(--color-grey-2);
 }
   
 .card > h2 {
@@ -52,4 +72,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.card > span > p {
+    font-weight: 600;
+}
+
+.card > span > button {
+    background-color: var(--color-grey-7);
+}
+
+.card > span > button:hover {
+    background-color: var(--color-grey-1);
+}
+
+input[type="range"] {
+    appearance: none;
+    height: 8px;
+    background-color: var(--color-brand-1);
+    border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 24px;
+    width: 24px;
+    background-color: var(--color-brand-2);
+    
+    border: 6px solid var(--color-brand-1);
+    border-radius: 50%;
 }
