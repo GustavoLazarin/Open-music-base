@@ -17,15 +17,15 @@ const createCard = (product) => {
     card.classList.add('card')
     cardImg.setAttribute('src', product.img);
     cardImg.setAttribute('alt', product.title);
-    cardInfos.append(band, year);
     band.innerText = product.band;
     year.innerText = product.year;
     cardTitle.innerText = product.title;
     cardPrice.innerText = `R$ ${product.price}.00`;
     buyButn.innerText = 'Comprar';
     buyButn.dataset.id = product.id;
-
+    
     card.append(cardImg, cardInfos, cardTitle, cardBox);
+    cardInfos.append(band, year);
     cardBox.append(cardPrice, buyButn);
 
     return card;
